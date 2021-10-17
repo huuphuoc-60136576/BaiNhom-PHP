@@ -23,7 +23,7 @@
             <span class="t_2 shadow">Đang xem tập 1</span>
         </div>
         <div class="container_1">
-            <iframe class="responsive-iframe_1 rounded" src="../Videos/theveil_trailer.mp4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="responsive-iframe_1 rounded" src="../Films/theveil_trailer.mp4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/h7i5FnrQONs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
         </div>
         <div class="t_1 rounded mt-3 p-3 shadow">
