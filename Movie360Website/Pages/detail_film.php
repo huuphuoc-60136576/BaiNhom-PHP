@@ -216,14 +216,12 @@
                 </div>
                 <div class="text-white-50">
                     <?php 
-                    $s = 1; 
                     if($kieuPhim==0) echo "<h3>Danh sách tập: </h3>";
                     if (mysqli_num_rows($result_tapphim) <> 0 && $kieuPhim==0) {
                         while ($row = mysqli_fetch_array($result_tapphim)) {
-                            echo "<a href='watch_film.php?maPhim=$maPhim&soTap=$s&maTapPhim=".$row["MaTapPhim"]."' style='text-decoration: none;'>
-                                    <button type='button' class='btn btn-dark b_1 shadow'>Tập $s</button>
+                            echo "<a href='watch_film.php?maPhim=$maPhim&soTap=" . $row["SoTap"] . "&maTapPhim=".$row["MaTapPhim"]."' style='text-decoration: none;'>
+                                    <button type='button' class='btn btn-dark b_1 shadow'>Tập " . $row["SoTap"] . "</button>
                                 </a>";
-                            $s++;
                         }
                     }
                     mysqli_free_result($result_tapphim);
@@ -302,10 +300,10 @@
 
 
         </div>
-        <div class="d-flex justify-content-center">
+        <!-- <div class="d-flex justify-content-center">
             <h3 class="title_1 text-white-50 mt-5 mb-3 bg-dark p-3 shadow" style="width: 500px; border-radius: 50px;
             background: linear-gradient(0deg, rgba(34,183,195,1) 0%, rgba(63,15,70,1) 100%);">Thiết kế bởi Nguyễn Văn Liêm</h3>
-        </div>
+        </div> -->
     </div><br>
     </div>
     

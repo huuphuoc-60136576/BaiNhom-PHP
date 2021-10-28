@@ -233,13 +233,11 @@
             echo '<div class="t_1 add-radius mt-3 p-3 shadow">
                     <h3>Danh sách tập:</h3>';
         }
-        $s = 1;
         if (mysqli_num_rows($result_sotapphim) <> 0 && $kieuPhim == 0) {
             while ($row = mysqli_fetch_array($result_sotapphim)) {
-                echo "<a href='" . $_SERVER["PHP_SELF"] . "?maPhim=$maPhim&soTap=$s&maTapPhim=" . $row["MaTapPhim"] . "' style='text-decoration: none;'>
-                                <button type='button' class='btn btn-dark b_1 shadow add-radius'>Tập $s</button>
+                echo "<a href='" . $_SERVER["PHP_SELF"] . "?maPhim=$maPhim&soTap=" . $row["SoTap"] . "&maTapPhim=" . $row["MaTapPhim"] . "' style='text-decoration: none;'>
+                                <button type='button' class='btn btn-dark b_1 shadow add-radius'>Tập " . $row["SoTap"] . "</button>
                             </a>";
-                $s++;
             }
         }
         mysqli_free_result($result_sotapphim);
@@ -334,7 +332,7 @@
             }
             
             echo "</div>";
-            echo "<p align='center' class='text-success'>Tổng số trang là: ".$maxPage ."</p>";
+            // echo "<p align='center' class='text-success'>Tổng số trang là: ".$maxPage ."</p>";
 
             ?>
 
@@ -412,10 +410,10 @@
 
 
         </div>
-        <div class="d-flex justify-content-center">
+        <!-- <div class="d-flex justify-content-center">
             <h3 class="title_1 text-white-50 mt-5 mb-3 bg-dark p-3 shadow" style="width: 500px; border-radius: 50px;
             background: linear-gradient(0deg, rgba(34,183,195,1) 0%, rgba(63,15,70,1) 100%);">Thiết kế bởi Nguyễn Văn Liêm</h3>
-        </div>
+        </div> -->
     </div><br>
 
 

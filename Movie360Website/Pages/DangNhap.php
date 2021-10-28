@@ -2,7 +2,8 @@
 include("../Includes/Header.php");
 require("connect.php");
 $ac = 0;
-unset($_SESSION["nd"]);
+if (isset($_SESSION["nd"]))
+     unset($_SESSION["nd"]);;
 if (isset($_POST['dn_sm'], $_POST['dn_tk'], $_POST['dn_mk'])) {
      $tk = $_POST['dn_tk'];
      $mk = $_POST['dn_mk'];

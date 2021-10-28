@@ -20,7 +20,7 @@
 
           .area {
                text-align: center;
-               border: 1px white solid;
+               border: 1px black solid;
                margin-bottom: 20px;
           }
 
@@ -28,7 +28,6 @@
                text-decoration: none;
           }
 
-          a:hover,
           img:hover {
                filter: drop-shadow(0 0 10px blue);
                font-style: italic;
@@ -47,23 +46,17 @@
 
 </head>
 <?php
-include("../Includes/Header.php");
 require("connect.php");
-// session_start();
-// if (isset($_POST['dx'])) {
-//      unset($_SESSION["nd"]);
-// }
+
 ?>
 
-<body style="background: url('../Images/bg_01.jpg') black no-repeat top center;">
+<body style="background: url('../Images/bg-haloween.png') black no-repeat top center;">
 
-     <div class="container p-3">
+<div class="container-fluid p-0" style="max-width: 1280px; border: 2px black solid; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,15,91,1) 50%, rgba(0,0,0,1) 100%);">
+     <?php include("../Includes/Header.php"); ?>
 
-          <div class="area">
-               <h1>Đề Xuất</h1>
-          </div>
-          <div class="area p-2">
-               <h1>Mới cập nhật</h1>
+          <div class="area p-2 bg-dark" style="color:blueviolet; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,15,91,1) 50%, rgba(0,0,0,1) 100%);">
+               <h1>Danh Sách Phim</h1>
                <div class="row no-gutters row-cols-2 row-cols-md-4">
                     <?php
                     if (!isset($_GET['page'])) {
@@ -71,23 +64,25 @@ require("connect.php");
                     }
                     $rowsPerPage = 12;
                     $offset = ($_GET['page'] - 1) * $rowsPerPage;
-                    $strSQL = 'SELECT * FROM  phim';
-
+                    $search_info = "";
+                    if (isset($_POST['search_info']))
+                         $search_info = $_POST['search_info'];
+                    $strSQL = "SELECT * FROM  phim Where TenPhim like '%$search_info%' ";
                     //tổng số mẩu tin cần hiển thị
                     $numRows = mysqli_num_rows(mysqli_query($dbc, $strSQL));
                     //tổng số trang
                     $maxPage = ceil($numRows / $rowsPerPage);
-                    $strSQL1 = "SELECT * FROM  phim LIMIT $offset, $rowsPerPage";
+                    $strSQL1 = $strSQL . "LIMIT $offset, $rowsPerPage";
                     $result = mysqli_query($dbc, $strSQL1);
                     if (mysqli_num_rows($result) == 0) {
                          echo "Chưa có dữ liệu";
                     } else {
                          while ($row = mysqli_fetch_array($result)) {
                               echo "<div class='col mb-4 p-2'><a href='detail_film.php?maPhim=" . $row["MaPhim"] . "'>
-                              <div class='card bg-transparent' style='border: 1px black solid;'>
-                              <img src='../Films/" . $row["Poster"] . "' style='width:306px;height:480px;border-radius:10px;'>
+                              <div class='card bg-transparent' style='border: none;'>
+                              <img src='../Films/" . $row["Poster"] . "' style='width:300px; height:450px; border-radius:10px; border: 3px solid black'>
                               <div class='card-body p-0'>
-                                   <p class='card-text'>" . $row['TenPhim'] . "</p>
+                                   <p class='card-text'style='color:blueviolet' >" . $row['TenPhim'] . "</p>
                               </div>
                          </div></a>
                          </div>";
