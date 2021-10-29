@@ -50,10 +50,7 @@
           }
      </style>
 </head>
-<?php
-require("connect.php");
 
-?>
 
 <body style="background: url('../Images/bg-haloween.png') black no-repeat top center;">
      <div class="container-fluid p-0 " style="max-width: 1280px; border: 2px black solid; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,15,91,1) 50%, rgba(0,0,0,1) 100%);">

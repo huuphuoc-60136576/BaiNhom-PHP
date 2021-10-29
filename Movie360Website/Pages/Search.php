@@ -45,10 +45,7 @@
      </style>
 
 </head>
-<?php
-require("connect.php");
 
-?>
 
 <body style="background: url('../Images/bg-haloween.png') black no-repeat top center;">
 
