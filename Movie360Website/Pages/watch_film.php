@@ -154,7 +154,7 @@
                 $query_rating = "UPDATE `phim` SET `Diem`= $tinhDiem,`LuotDanhGia`=$tinhLuotDanhGia WHERE MaPhim = '$maPhim';";
                 $result_rating = mysqli_query($dbc, $query_rating);
             }
-            header("Location: " . $_SERVER['PHP_SELF'] . "?maPhim=$maPhim&soTap=$s&maTapPhim=$maTapPhim");
+            header("Location: " . $_SERVER['PHP_SELF'] . "?maPhim=$maPhim&soTap=".$_SESSION['s']."&maTapPhim=$maTapPhim");
             exit;
         }
         //Lưu lại tập phim vào lịch sử theo userid
