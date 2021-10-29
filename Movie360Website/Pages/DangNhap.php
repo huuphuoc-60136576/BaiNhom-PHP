@@ -1,48 +1,3 @@
-<?php
-include("../Includes/Header.php");
-require("connect.php");
-$ac = 0;
-if (isset($_SESSION["nd"]))
-     unset($_SESSION["nd"]);;
-if (isset($_POST['dn_sm'], $_POST['dn_tk'], $_POST['dn_mk'])) {
-     $tk = $_POST['dn_tk'];
-     $mk = $_POST['dn_mk'];
-     $strSQL = "SELECT * FROM nguoidung where TaiKhoan='$tk' and MatKhau='$mk'";
-     $result = mysqli_query($dbc, $strSQL);
-     if (mysqli_num_rows($result) == 0)
-          $dn_tb = "Tài khoản hoặc mật khẩu không đúng !";
-     else {
-          $_SESSION["nd"] = $tk;
-          header("location: home.php");
-     }
-}
-if (isset($_POST['dk_sm'], $_POST['dk_tk'], $_POST['dk_mk2'], $_POST['dk_mk2'])) {
-     $tk = $_POST['dk_tk'];
-     $mk1 = $_POST['dk_mk1'];
-     $mk2 = $_POST['dk_mk2'];
-     $ac = 1;
-     $strSQL = "SELECT * FROM nguoidung where TaiKhoan='$tk'";
-     $result = mysqli_query($dbc, $strSQL);
-     if (preg_match('/^[0-9a-zA-Z]+$/', $tk))
-          if (preg_match('/^[0-9a-zA-Z]+$/', $mk1))
-               if ($mk1 == $mk2)
-                    if (mysqli_num_rows($result) == 0) {
-                         $strSQL = "INSERT INTO `nguoidung`(`TaiKhoan`, `MatKhau`) VALUES ('$tk','$mk1')";
-                         $result = mysqli_query($dbc, $strSQL);
-                         $_SESSION["nd"] = $tk;
-                         header("location: home.php");
-                    } else
-                         $dk_tb = "Tài khoản đã tồn tại";
-               else
-                    $dk_tb = "Mật khẩu xác nhận không đúng";
-          else
-               $tk_tb = "Mật khẩu không được chứa ký tự đặc biệt hoặc khoảng trống";
-     else
-          $tk_tb = "Tài khoản không được chứa ký tự đặc biệt hoặc khoảng trống";
-}
-
-?>
-
 <html lang="en">
 
 <head>
@@ -58,7 +13,52 @@ if (isset($_POST['dk_sm'], $_POST['dk_tk'], $_POST['dk_mk2'], $_POST['dk_mk2']))
 </head>
 
 <body style="background: url('../Images/bg_01.jpg') black no-repeat top center;">
-     <div class="container">
+     <div class="container-fluid" style="max-width: 1280px;">
+          <?php
+          
+          include("../Includes/Header.php");
+          
+          $ac = 0;
+          if (isset($_SESSION["nd"]))
+               unset($_SESSION["nd"]);;
+          if (isset($_POST['dn_sm'], $_POST['dn_tk'], $_POST['dn_mk'])) {
+               $tk = $_POST['dn_tk'];
+               $mk = $_POST['dn_mk'];
+               $strSQL = "SELECT * FROM nguoidung where TaiKhoan='$tk' and MatKhau='$mk'";
+               $result = mysqli_query($dbc, $strSQL);
+               if (mysqli_num_rows($result) == 0)
+                    $dn_tb = "Tài khoản hoặc mật khẩu không đúng !";
+               else {
+                    $_SESSION["nd"] = $tk;
+                    header("location: home.php");
+               }
+          }
+          if (isset($_POST['dk_sm'], $_POST['dk_tk'], $_POST['dk_mk2'], $_POST['dk_mk2'])) {
+               $tk = $_POST['dk_tk'];
+               $mk1 = $_POST['dk_mk1'];
+               $mk2 = $_POST['dk_mk2'];
+               $ac = 1;
+               $strSQL = "SELECT * FROM nguoidung where TaiKhoan='$tk'";
+               $result = mysqli_query($dbc, $strSQL);
+               if (preg_match('/^[0-9a-zA-Z]+$/', $tk))
+                    if (preg_match('/^[0-9a-zA-Z]+$/', $mk1))
+                         if ($mk1 == $mk2)
+                              if (mysqli_num_rows($result) == 0) {
+                                   $strSQL = "INSERT INTO `nguoidung`(`TaiKhoan`, `MatKhau`) VALUES ('$tk','$mk1')";
+                                   $result = mysqli_query($dbc, $strSQL);
+                                   $_SESSION["nd"] = $tk;
+                                   header("location: home.php");
+                              } else
+                                   $dk_tb = "Tài khoản đã tồn tại";
+                         else
+                              $dk_tb = "Mật khẩu xác nhận không đúng";
+                    else
+                         $tk_tb = "Mật khẩu không được chứa ký tự đặc biệt hoặc khoảng trống";
+               else
+                    $tk_tb = "Tài khoản không được chứa ký tự đặc biệt hoặc khoảng trống";
+          }
+
+          ?>
           <div class=" container col-4 bg-white p-5 my-5" align="center" style="border:3px black solid; border-radius:25px;">
                <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">

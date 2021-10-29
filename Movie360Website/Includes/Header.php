@@ -17,12 +17,14 @@
 </head>
 <body>
      <?php
+     //Kết nối database
+     require("connect.php");
      session_start();
      if (isset($_POST['dx'])) {
           unset($_SESSION["nd"]);
      }
-     ?>
-     <div class="container">
+     ?> 
+     <div class="container-fluid" style="max-width: 1280px;">
           <nav class="navbar navbar-dark area p-2 rounded" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,15,91,1) 50%, rgba(0,0,0,1) 100%); border: 3px solid #380f5b; font-size:20px;">
                <a class="badge mb-2" id="home" href="home.php" style='text-decoration: none; color: blueviolet;'><span style="font-size: 30px;"><i class='far fa-play-circle mt-2' style='font-size:30px'></i>Movie 360</span></a>
                <form class="form-inline d-flex  flex-grow-1 px-2 p-0" action="Search.php" method="post">

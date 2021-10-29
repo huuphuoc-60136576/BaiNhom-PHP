@@ -46,14 +46,12 @@
      </style>
 
 </head>
-<?php
-include("../Includes/Header.php");
-require("connect.php");
-?>
 
-<body style="background: url('../Images/bg-haloween.png') black no-repeat top center;">
+
+<body style="background: url('../Images/bg_01.jpg') black no-repeat top center;">
 
      <div class="container-fluid p-1 bg-dark " style="max-width: 1280px; border-left: 2px black solid;border-right: 2px black solid; background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,15,91,1) 50%, rgba(0,0,0,1) 100%);" >
+     <?php include("../Includes/Header.php"); ?>
           <div class="area rounded" style="color:blueviolet; background: linear-gradient(90deg, rgba(56,15,91,1) 0%, rgba(0,0,0,1) 50%, rgba(56,15,91,1) 100%);">
                <h1>Đề Xuất</h1>
           </div>
