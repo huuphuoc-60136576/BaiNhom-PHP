@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <?php
     require_once("../connect.php");
@@ -10,13 +13,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="../styles/tapphimstyle.css">
-    <title>Thêm tập phim</title>
+    <title>Cập nhật tập phim</title>
 
 </head>
 <body class="container-fluid">
     <?php
+        include_once("../../DangNhapLocation.php");
         include_once("../header.html");
-    ?>    
+    ?> 
 
     <?php  
         $maPhim = $_GET['maPhim'];
@@ -32,7 +36,7 @@
 
         $tenPhim = $row1['TenPhim'];
         $soTap = $row2['SoTap'];
-        echo "<h3>Bạn đang cập nhật $soTap phim cho phim $tenPhim</h3>";
+        echo "<h3>Bạn đang cập nhật tập $soTap phim cho phim $tenPhim</h3>";
     ?>
 
     <!-- Xử lý dữ liệu post lên -->

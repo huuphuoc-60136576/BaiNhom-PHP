@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <?php
     require_once("../connect.php");
@@ -13,10 +16,11 @@
     <title>Thêm tập phim</title>
 
 </head>
-<body class="container-fluid" style="background-image: url('../background.png');">
+<body class="container-fluid">
     <?php
+        include_once("../../DangNhapLocation.php");
         include_once("../header.html");
-    ?>  
+    ?> 
     <?php  
         $maPhim = $_GET['maPhim'];
         $sql = "SELECT * FROM phim WHERE MaPhim = '$maPhim'";
@@ -71,10 +75,7 @@
             }
 
             if (empty($error)) {
-                if (!is_dir("KhoPhim\\$maPhim"))
-                    mkdir("KhoPhim\\$maPhim");
-
-                move_uploaded_file($tmp, "KhoPhim/$maPhim/" . $name);
+                move_uploaded_file($tmp, "KhoPhim/" . $name);
 
                 $sql = "INSERT INTO tapphim
                         (MaTapPhim, TapPhim, SoTap, MaPhim)
@@ -206,7 +207,7 @@
                         <input type='hidden' name='maPhim' value='".$row['MaPhim']."'>
                         <input type='hidden' name='maTapPhim' value='". $row['MaTapPhim'] ."'>
                         <input type='hidden' name='soTap' value='". $row['SoTap'] ."'>
-                        <input type='submit' name = 'xoa' value='Xóa'' />
+                        <input class='btn btn-danger' type='submit' name = 'xoa' value='Xóa'' />
                     </form>
                     <a class='btn btn-warning' href='suatapphim.php?maPhim=". $row['MaPhim'] . "&maTapPhim=". $row['MaTapPhim'] ."'>Sửa tập phim</a>
                     </td>

@@ -46,10 +46,7 @@
         </tr>
     </table>
 
-
-
-
-    <a href="suaphim.php?maPhim=MP0001">Alo</a>
+    <a href="suaphim.php?maPhim=MP0001">Sửa phim</a>
 
 
     <a href="../Phuoc-tapphim/themtapphim.php?maPhim=MP0001">Thêm tập phim</a>

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <?php
     require_once("../connect.php");
@@ -19,6 +22,7 @@
 </head>
 <body>
     <?php
+        include_once("../../DangNhapLocation.php");
         include_once("../header.html");
     ?>
 

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <?php
     require_once("../connect.php");
@@ -18,8 +21,8 @@
     </style>
 </head>
 <body>
-
     <?php
+        include_once("../../DangNhapLocation.php");
         include_once("../header.html");
     ?>
 
@@ -177,7 +180,7 @@
 									<span class="fa fa-paper-plane"></span>
 								</div>
 								<div class="text">
-									<p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+									<p><span>Email:</span> <a href="mailto:info@yoursite.com">nhom5@yoursite.com</a></p>
 								</div>
 								</div>
 							</div>
@@ -220,13 +223,16 @@
 									<div class="form-group">
                                         <select class="form-control" name="trangThai">
                                             <option disabled selected value> Trạng thái </option>
-                                            <option class="select-items" value="Chuẩn bị chiếu">
+                                            <option class="select-items" value="Chuẩn bị chiếu"
+                                                <?php if (isset($_POST['trangThai']) && $_POST['trangThai'] == 'Chuẩn bị chiếu') echo "selected";?>>
                                                 Chuẩn bị chiếu
                                             </option>
-                                            <option class="select-items" value="Đang cập nhật">
+                                            <option class="select-items" value="Đang cập nhật"
+                                                <?php if (isset($_POST['trangThai']) && $_POST['trangThai'] == 'Đang cập nhật') echo "selected";?>>
                                                 Đang cập nhật
                                             </option>
-                                            <option class="select-items" value="Đầy đủ">
+                                            <option class="select-items" value="Đầy đủ"
+                                                <?php if (isset($_POST['trangThai']) && $_POST['trangThai'] == 'Đầy đủ') echo "selected";?>>
                                                 Đầy đủ
                                             </option>
                                         </select>
