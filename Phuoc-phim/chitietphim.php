@@ -46,20 +46,11 @@
         </tr>
     </table>
 
-    <form action="" method="post">
-        <input type="hidden" name="maPhim" value="<?php echo $maPhim; ?>">
-        <input type="submit" name="xoa" value="Xóa">
-    </form>
 
-    <form action="suaphim.php" method="post">
-        <input type="hidden" name="maPhim" value="<?php echo $maPhim; ?>">
-        <input type="submit" value="Sửa">
-    </form>
 
-    <form action="../Phuoc-tapphim/themtapphim.php?maPhim=MP0001" method="get">
-        
-        <input type="submit" value="Thêm tập phim">
-    </form>
+
+    <a href="suaphim.php?maPhim=MP0001">Alo</a>
+
 
     <a href="../Phuoc-tapphim/themtapphim.php?maPhim=MP0001">Thêm tập phim</a>
 

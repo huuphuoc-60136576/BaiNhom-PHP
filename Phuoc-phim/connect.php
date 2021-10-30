@@ -2,7 +2,7 @@
     $server = 'localhost';
     $user = 'root';
     $password = '';
-    $db = 'quanlyxemphim_v3';
+    $db = 'quanlyxemphim';
 
     $conn = @mysqli_connect($server, $user, $password, $db)
             OR die ('Could not connect to MySQL: ' . mysqli_connect_error());
