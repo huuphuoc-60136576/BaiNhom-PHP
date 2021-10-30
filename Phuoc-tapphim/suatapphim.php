@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once("../Phuoc-phim/connect.php");
+    require_once("../connect.php");
 ?>
 <html lang="en">
 <head>
@@ -14,12 +14,13 @@
 
 </head>
 <body class="container-fluid">
-    
+    <?php
+        include_once("../header.html");
+    ?>    
+
     <?php  
         $maPhim = $_GET['maPhim'];
         $maTapPhim = $_GET['maTapPhim'];
-        echo $maPhim;
-        echo $maTapPhim;
 
         $sql1 = "SELECT * FROM phim WHERE MaPhim = '$maPhim'";
         $result1 = mysqli_query($conn, $sql1);
@@ -163,7 +164,9 @@
         <button type="submit" class="btn btn-warning" name="capNhapTapPhim">Cập nhật</button>
     </form>
     
-    
+    <?php
+        include_once("../footer.html");
+    ?>  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>

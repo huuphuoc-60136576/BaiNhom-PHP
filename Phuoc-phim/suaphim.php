@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once("connect.php");
+    require_once("../connect.php");
 ?>
 <html lang="en">
 <head>
@@ -18,6 +18,10 @@
     </style>
 </head>
 <body>
+    <?php
+        include_once("../header.html");
+    ?>
+
     <!-- Lấy phim từ một trang khác -->
     <?php
         $maPhim = $_GET['maPhim'];
@@ -326,6 +330,9 @@
 	</div>
 	</section>
 
+    <?php
+        include_once("../footer.html");
+    ?>
 	<script src="includes/js/jquery.min.js"></script>
 	<script src="includes/js/popper.js"></script>
 	<script src="includes/js/bootstrap.min.js"></script>
