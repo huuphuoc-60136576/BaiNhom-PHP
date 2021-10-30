@@ -299,10 +299,10 @@
 
 
             </div>
-            <!-- <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
             <h3 class="title_1 text-white-50 mt-5 mb-3 bg-dark p-3 shadow" style="width: 500px; border-radius: 50px;
-            background: linear-gradient(0deg, rgba(34,183,195,1) 0%, rgba(63,15,70,1) 100%);">Thiết kế bởi Nguyễn Văn Liêm</h3>
-        </div> -->
+            background: linear-gradient(0deg, rgba(34,183,195,1) 0%, rgba(63,15,70,1) 100%);">Nguyễn Văn Liêm</h3>
+        </div>
         </div><br>
         <?php
         include("../Includes/footer.html");
